@@ -1,18 +1,3 @@
-## Purpose
-
-Learn TDD and Emergent Design and Pair Programming on katas.
-
-## Setup
-
-### Prerequisites
-* [Visual Studio Code](https://code.visualstudio.com) 
-* [Node](https://nodejs.org/en)
-
-
-Install the remote collaboration plugin:
-    - VS Code: install [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
-
-
 ### Installation
 Ensure you have installed npm packages
 ```
@@ -35,8 +20,6 @@ npm test
 ```
 npm run testw
 ```
-
-
 
 #### Before you start:
 * **Try not to read ahead.**
