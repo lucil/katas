@@ -52,7 +52,7 @@ npm test
 
 ### Run tests continuously
 ```
-npm test-watch
+npm run testw
 ```
 
 
