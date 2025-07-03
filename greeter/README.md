@@ -55,8 +55,6 @@ npm test
 npm test-watch
 ```
 
-
-
 #### Before you start:
 * **Try not to read ahead.**
 * **Do one task at a time. The trick is to learn to work incrementally.**
@@ -72,7 +70,7 @@ This kata introduces the red-green-refactor workflow of TDD via ping-pong or dri
     - One developer writes a failing test, then the other writes the code to make the test pass. Afterward, roles switch: the second developer writes the next test, and the first implements the code.
 - **Driver/navigator** 
     -  One developer (the "driver") writes code while the other (the "navigator") reviews each line, thinks strategically, and provides guidance or suggestions. The roles gets switched after each acceptance criteria or in fixed intervals.
-    
+
 ### Greeter
 
 1. Write a `Greeter` class with `greet` instance method. Initially, the method receives a `name` as input and outputs `Hello <name>`.
