@@ -3,16 +3,12 @@
 ## Overview
 The Elevator Kata is a coding exercise designed to practice incremental development and test-driven development (TDD) using the Test Commit Revert (TCR) workflow. The goal is to simulate the behavior of an elevator system in a building while adhering to strict coding principles.
 
----
-
 ## Objective
 Implement an elevator system that:
 1. Handles floor requests from inside the elevator.
 2. Handles "Up" or "Down" requests from outside the elevator.
 3. Prioritizes requests based on the current direction of travel.
 4. Optimizes movement to minimize unnecessary trips.
-
----
 
 ## Rules
 1. The building has **10 floors** (0 to 9).
@@ -23,8 +19,6 @@ Implement an elevator system that:
 4. The elevator serves requests in the **current direction** before switching directions.
 5. Invalid requests (e.g., floors outside the range 0-9) are ignored.
 6. The elevator cannot move beyond the top or bottom floor.
-
----
 
 ## Acceptance Criteria
 
