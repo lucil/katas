@@ -43,8 +43,6 @@ The elevator system must meet the following criteria:
 ### Optimization (Pro)
 9. The elevator minimizes unnecessary trips by optimizing the order of requests in its queue.
 
----
-## Expected Behavior
 
 ## Expected Behavior
 
