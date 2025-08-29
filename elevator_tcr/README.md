@@ -8,12 +8,11 @@ Implement an elevator system that:
 1. Handles floor requests from inside the elevator.
 2. Handles "Up" or "Down" requests from outside the elevator.
 3. Prioritizes requests based on the current direction of travel.
-4. Optimizes movement to minimize unnecessary trips.
 
 
 ## Acceptance Criteria
 
-The building has 10 floors from 0-9.
+The building has 10 floors from 0-9.\
 The elevator system must meet the following criteria:
 
 #### 1. Starting State
@@ -27,7 +26,8 @@ The elevator system must meet the following criteria:
 
    * Example:
       * Given the elevator is at floor 0, when a request is made to move to floor 5, then the elevator moves to floor 5.
-      * Requests for floors outside the valid range (invalid requests) are ignored.
+      * Given the elevator is at floor 3, when a request is made to move to floor 10, then the elevator ignores the request.
+       * Given the elevator is at floor 3, when a request is made to move to floor -1, then the elevator ignores the request.
 
 #### 3. Movement Constraints
 - The elevator cannot move beyond the top floor (9) or below the ground floor (0).
