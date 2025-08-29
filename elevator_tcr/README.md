@@ -10,39 +10,66 @@ Implement an elevator system that:
 3. Prioritizes requests based on the current direction of travel.
 4. Optimizes movement to minimize unnecessary trips.
 
-## Rules
-1. The building has **10 floors** (0 to 9).
-2. The elevator starts at **floor 0**.
-3. Requests can come from:
-   - **Inside the elevator**: Passengers select a floor.
-   - **Outside the elevator**: Passengers press "Up" or "Down" buttons.
-4. The elevator serves requests in the **current direction** before switching directions.
-5. Invalid requests (e.g., floors outside the range 0-9) are ignored.
-6. The elevator cannot move beyond the top or bottom floor.
 
 ## Acceptance Criteria
 
+The building has 10 floors from 0-9.
 The elevator system must meet the following criteria:
 
-### Basic Movement
-1. The elevator starts at floor 0 when initialized.
-2. The elevator can move up or down to a requested floor within the range of 0-9.
+#### 1. Starting State
+- The elevator starts at floor 0 when initialized.
+   * Example:
+      * Given the elevator is initialized, then its current floor is 0.
 
-### Handling Requests
-3. Passengers inside the elevator can request a floor.
-4. Passengers outside the elevator can request the elevator by pressing "Up" or "Down" on a specific floor.
+#### 2. Handling Requests
+- Passengers can request a valid floor (0 to 9), and the elevator moves to that floor.
+- Requests for floors outside the valid range (invalid requests) are ignored.
 
-### Directional Priority
-5. The elevator serves all requests in the current direction before switching directions.
-6. If there are no requests in the current direction, the elevator changes direction to serve pending requests.
+   * Example:
+      * Given the elevator is at floor 0, when a request is made to move to floor 5, then the elevator moves to floor 5.
+      * Requests for floors outside the valid range (invalid requests) are ignored.
 
-### Invalid Requests
-7. Requests outside the valid floor range (0-9) are ignored.
-8. If no requests are made, the elevator remains idle.
+#### 3. Movement Constraints
+- The elevator cannot move beyond the top floor (9) or below the ground floor (0).
+   * Example:
+      * Given the elevator is at floor 9, when a request is made to move up, then the elevator ignores the request and remains at floor 9.
+      * Given the elevator is at floor 0,
+when a request is made to move down,
+then the elevator ignores the request and remains at floor 0.
 
-### Optimization (Pro)
-9. The elevator minimizes unnecessary trips by optimizing the order of requests in its queue.
+#### 4. Idle State
+- If no requests are pending, the elevator remains idle at its current floor.
+   * Example:
+      * Given the elevator is at floor 6, when no new requests are made, then the elevator stays at floor 6.
 
+#### 5. Request Processing Order
+- The elevator processes requests in the order they are received.
+   * Example:
+      * Given the elevator is at floor 0, when requests are made for floors 4 and 2 in that order, then the elevator moves to floor 4 first and then to floor 2.
+
+#### 6. Directional Priority
+- The elevator serves all requests in its current direction (up or down) before switching directions.
+   * Example:
+      * Given the elevator is at floor 3,
+when requests are made for floors 5 (up), 7 (up), and 2 (down),
+then the elevator moves to floor 5, then floor 7, and only after completing all "up" requests, it moves to floor 2.
+      * Given the elevator is at floor 6 and moving down,
+when requests are made for floors 4 (down), 2 (down), and 8 (up),
+then the elevator moves to floor 4, then floor 2, and only after completing all "down" requests, it moves to floor 8.
+
+#### 7. Request Queue
+- The elevator can handle multiple requests and processes them one at a time.
+   * Example:
+      * Given the elevator is at floor 0,
+when requests are made for floors 3, 7, and 5,
+then the elevator processes each request sequentially.
+
+#### 8. Completion of Requests
+- After processing all requests, the elevator remains idle at the last requested floor.
+   * Example:
+      * Given the elevator is at floor 0,
+when requests are made for floors 2 and 6,
+then the elevator moves to floor 2, then to floor 6, and remains idle at floor 6.
 
 ## Expected Behavior
 
