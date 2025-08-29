@@ -125,3 +125,8 @@ To follow the **Test Commit Revert (TCR)** workflow:
       * The script will revert your changes to the last committed state.
       * You will see an error message: ❌ Tests failed. Reverting changes....
       * Repeat the process for the next small incremental change.
+
+
+### TCR in action by Kent Beck Example video:
+
+https://www.youtube.com/watch?v=Aof0F9DvTFg
