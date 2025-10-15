@@ -11,5 +11,5 @@ if %errorlevel%==0 (
     git commit -m "%commitMessage%"
 ) else (
     echo ❌ Tests failed. Reverting changes...
-    git commit --amend
+    git commit --amend --no-edit
 )

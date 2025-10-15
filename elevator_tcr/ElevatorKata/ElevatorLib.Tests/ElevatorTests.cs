@@ -55,9 +55,9 @@ namespace ElevatorLib.Tests
 
             Assert.Equal(new List<int> { 0, 4, 2 }, movementLogs);
         }
-        
-        [Fact(DisplayName ="Given the elevator is at floor 3, when requests are made for floors 5 (up), 7 (up), and 2 (down), then the elevator moves to floor 5, then floor 7, and only after completing all \"up\" requests, it moves to floor 2.")]
-        public void RequestsAreProcessedInAFIFOORderFollowingTheDirection()
+
+        [Fact(DisplayName = "Given the elevator is at floor 3, when requests are made for floors 5 (up), 7 (up), and 2 (down), then the elevator moves to floor 5, then floor 7, and only after completing all \"up\" requests, it moves to floor 2.")]
+        public void RequestsAreProcessedInAFIFOOOrderFollowingTheSequence()
         {
             var elevator = ElevatorTestsExtensions.CreateTestElevator(startingFloor: 3);
 
@@ -65,7 +65,31 @@ namespace ElevatorLib.Tests
 
             var movementLogs = elevator.GetOpenedDoors();
 
-            Assert.Equal(new List<int> {3, 5, 7, 2 }, movementLogs);
+            Assert.Equal(new List<int> { 3, 5, 7, 2 }, movementLogs);
+        }
+
+        [Fact(DisplayName = "Given the elevator is at floor 3, when requests are made for floors 5 (up), and 2 (down), 7 (up) then the elevator moves to floor 5, then floor 7, and only after completing all \"up\" requests, it moves to floor 2.")]
+        public void RequestsAreProcessedInAFIFOOOrderFollowingTheUpDirection()
+        {
+            var elevator = ElevatorTestsExtensions.CreateTestElevator(startingFloor: 3);
+
+            elevator.RequestFloor([5, 2, 7]);
+
+            var movementLogs = elevator.GetOpenedDoors();
+
+            Assert.Equal(new List<int> { 3, 5, 7, 2 }, movementLogs);
+        }
+
+        [Fact(DisplayName = "Given the elevator is at floor 3, when requests are made for floors 2 (down), and 5 (up), 1 (down) then the elevator moves to floor 2, then floor 1, and only after completing all \"up\" requests, it moves to floor 5.")]
+        public void RequestsAreProcessedInAFIFOOOrderFollowingTheDownDirection()
+        {
+            var elevator = ElevatorTestsExtensions.CreateTestElevator(startingFloor: 3);
+
+            elevator.RequestFloor([2, 5, 1]);
+
+            var movementLogs = elevator.GetOpenedDoors();
+
+            Assert.Equal(new List<int> { 3, 2, 1, 5 }, movementLogs);
         }
     }
 
@@ -77,6 +101,5 @@ namespace ElevatorLib.Tests
             elevator.RequestFloor(startingFloor);
             return elevator;
         }
-    }
-    
+    }  
 }

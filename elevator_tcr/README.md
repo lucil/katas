@@ -33,9 +33,7 @@ The elevator system must meet the following criteria:
 - The elevator cannot move beyond the top floor (9) or below the ground floor (0).
    * Example:
       * Given the elevator is at floor 9, when a request is made to move up, then the elevator ignores the request and remains at floor 9.
-      * Given the elevator is at floor 0,
-when a request is made to move down,
-then the elevator ignores the request and remains at floor 0.
+      * Given the elevator is at floor 0, when a request is made to move down, then the elevator ignores the request and remains at floor 0.
 
 #### 4. Idle State
 - If no requests are pending, the elevator remains idle at its current floor.
@@ -50,12 +48,9 @@ then the elevator ignores the request and remains at floor 0.
 #### 6. Directional Priority
 - The elevator serves all requests in its current direction (up or down) before switching directions.
    * Example:
-      * Given the elevator is at floor 3,
-when requests are made for floors 5 (up), 7 (up), and 2 (down),
-then the elevator moves to floor 5, then floor 7, and only after completing all "up" requests, it moves to floor 2.
-      * Given the elevator is at floor 6 and moving down,
-when requests are made for floors 4 (down), 2 (down), and 8 (up),
-then the elevator moves to floor 4, then floor 2, and only after completing all "down" requests, it moves to floor 8.
+      * Given the elevator is at floor 3, when requests are made for floors 5 (up), 7 (up), and 2 (down), then the elevator moves to floor 5, then floor 7, and only after completing all "up" requests, it moves to floor 2.
+      * Given the elevator is at floor 3, when requests are made for floors 5 (up), and 2 (down), 7 (up) then the elevator moves to floor 5, then floor 7, and only after completing all "up" requests, it moves to floor 2.
+      * Given the elevator is at floor 6 and moving down,when requests are made for floors 4 (down), 2 (down), and 8 (up), then the elevator moves to floor 4, then floor 2, and only after completing all "down" requests, it moves to floor 8.
 
 #### 7. Request Queue
 - The elevator can handle multiple requests and processes them one at a time.
